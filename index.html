@@ -11,6 +11,22 @@
     </style>
 </head>
 <body>
+    <script type="text/javascript">
+        function opor(v,a,cx) {
+            var v=document.getElementById("oporv").value
+            var a=document.getElementById("opora").value
+            var cx=document.getElementById("oporcx").value
+            var wynik=0.5*Math.pow(v, 2)*a*cx
+            document.getElementById("oporwynik").innerHTML=wynik
+        }
+
+        function przyspieszenie(v,t) {
+            var v=document.getElementById("przysv").value
+            var t=document.getElementById("przyst").value
+            var wynik=v/t
+            document.getElementById("przyswynik").innerHTML=wynik
+        }
+    </script>
     <div class="box">
         <div class="title">
             <div class="textfiz">FIZYKA W MOTORYZACJI</div>
@@ -19,8 +35,24 @@
             <div class="tekst">Prowadząc samochód, mamy do czynienia z wieloma prawami fizyki, które wpływają zarówno na bezpieczeństwo jazdy, jak i wielkość spalania. Znajdziesz tutaj sześć wzorów fizycznych związanych z motoryzacją.</div>
             <table>
                 <tr>
-                    <td><div class="opcja"><div class="wzor">OPÓR AREODYNAMICZNY<br>Fp = 0.5ρ &sdot; V<sup>2</sup> &sdot; A &sdot; Cx</div></div></td>
-                    <td><div class="opcja"><div class="wzor">PRZYSPIESZENIE<br>a = &Delta;V / &Delta;t</div></div></td>
+                    <td>
+                        <div class="opcja"><div class="wzor">OPÓR AREODYNAMICZNY<br>Fp = 0.5ρ &sdot; V<sup>2</sup> &sdot; A &sdot; Cx</div>
+                            <div class="oblicz">
+                                0.5p &sdot; <input type="number" placeholder="V" class="wpisl" id="oporv"><sup>2</sup> &sdot; <input type="number" placeholder="A" class="wpisl" id="opora"> &sdot; <input type="number" placeholder="Cx" class="wpisl" id="oporcx"><br>
+                                <button onclick="opor()">Oblicz</button><br>
+                                Wynik: <label id="oporwynik"></label>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="opcja"><div class="wzor">PRZYSPIESZENIE<br>a = &Delta;V / &Delta;t</div>
+                            <div class="oblicz">
+                                <input type="number" placeholder="&Delta;V" class="wpisl" id="przysv"> / <input type="number" placeholder="&Delta;t" class="wpisl" id="przyst"><br>
+                                <button onclick="przyspieszenie()">Oblicz</button><br>
+                                Wynik: <label id="przyswynik"></label>
+                            </div>
+                        </div>
+                    </td>
                 </tr>
                 <tr>
                     <td><div class="opcja">Opcja 3</div></td>
