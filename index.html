@@ -26,6 +26,21 @@
             var wynik=v/t
             document.getElementById("przyswynik").innerHTML=wynik
         }
+
+        function toczenie(f,r,n) {
+            var f=document.getElementById("toczf").value
+            var r=document.getElementById("toczr").value
+            var n=document.getElementById("toczn").value
+            var wynik=f/r*n
+            document.getElementById("toczwynik").innerHTML=wynik
+        }
+
+        function bezwladnosc(m,a) {
+            var m=document.getElementById("bezm").value
+            var a=document.getElementById("beza").value
+            var wynik=-(m*a)
+            document.getElementById("bezwynik").innerHTML=wynik
+        }
     </script>
     <div class="box">
         <div class="title">
@@ -37,6 +52,7 @@
                 <tr>
                     <td>
                         <div class="opcja"><div class="wzor">OPÓR AREODYNAMICZNY<br>Fp = 0.5ρ &sdot; V<sup>2</sup> &sdot; A &sdot; Cx</div>
+                        <div class="wzorleg">ρ - gęstość powietrza<br>V - prędkość<br>A - pole powierzchni czołowej<br>Cx - współczynnik oporów powietrza</div>
                             <div class="oblicz">
                                 0.5p &sdot; <input type="number" placeholder="V" class="wpisl" id="oporv"><sup>2</sup> &sdot; <input type="number" placeholder="A" class="wpisl" id="opora"> &sdot; <input type="number" placeholder="Cx" class="wpisl" id="oporcx"><br>
                                 <button onclick="opor()">Oblicz</button><br>
@@ -46,6 +62,7 @@
                     </td>
                     <td>
                         <div class="opcja"><div class="wzor">PRZYSPIESZENIE<br>a = &Delta;V / &Delta;t</div>
+                        <div class="wzorleg">&Delta;V - zmiana prędkości <br> &Delta;t - zmiana czasu</div>
                             <div class="oblicz">
                                 <input type="number" placeholder="&Delta;V" class="wpisl" id="przysv"> / <input type="number" placeholder="&Delta;t" class="wpisl" id="przyst"><br>
                                 <button onclick="przyspieszenie()">Oblicz</button><br>
@@ -55,8 +72,24 @@
                     </td>
                 </tr>
                 <tr>
-                    <td><div class="opcja">Opcja 3</div></td>
-                    <td><div class="opcja">Opcja 4</div></td>
+                    <td><div class="opcja"><div class="wzor">OPÓR TOCZENIA<br>F<sub>t</sub> = f / R &sdot; N</div>
+                        <div class="wzorleg">f - współczynnik tarcia tocznego<br>R - promień toczonego walca<br>N - siła nacisku ciała na podłoże</div>
+                        <div class="oblicz">
+                            <input type="number" placeholder="f" class="wpisl" id="toczf"> / <input type="number" placeholder="R" class="wpisl" id="toczr"> &sdot; <input type="number" placeholder="N" class="wpisl" id="toczn"><br>
+                            <button onclick="toczenie()">Oblicz</button><br>
+                            Wynik: <label id="toczwynik"></label>
+                        </div>
+                    </div>
+                    </td>
+                    <td><div class="opcja"><div class="wzor">SIŁA BEZWŁADNOŚCI<br>F<sub>b</sub> = -(m &sdot; a)</div>
+                        <div class="wzorleg">m - masa<br>a - przyspieszenie</div>
+                            <div class="oblicz">
+                                - ( <input type="number" placeholder="m" class="wpisl" id="bezm"> &sdot; <input type="number" placeholder="a" class="wpisl" id="beza"> )<br>
+                                <button onclick="bezwladnosc()">Oblicz</button><br>
+                                Wynik: <label id="bezwynik"></label>
+                            </div>
+                        </div>
+                    </td>
                 </tr>
                 <tr>
                     <td><div class="opcja">Opcja 5</div></td>
