@@ -17,14 +17,14 @@
             var a=document.getElementById("opora").value
             var cx=document.getElementById("oporcx").value
             var wynik=0.5*Math.pow(v, 2)*a*cx
-            document.getElementById("oporwynik").innerHTML=wynik
+            document.getElementById("oporwynik").innerHTML=wynik + " [N]"
         }
 
         function przyspieszenie(v,t) {
             var v=document.getElementById("przysv").value
             var t=document.getElementById("przyst").value
             var wynik=v/t
-            document.getElementById("przyswynik").innerHTML=wynik
+            document.getElementById("przyswynik").innerHTML=wynik + " [m/s<sup>2</sup>]"
         }
 
         function toczenie(f,r,n) {
@@ -32,14 +32,29 @@
             var r=document.getElementById("toczr").value
             var n=document.getElementById("toczn").value
             var wynik=f/r*n
-            document.getElementById("toczwynik").innerHTML=wynik
+            document.getElementById("toczwynik").innerHTML=wynik + " [N]"
         }
 
         function bezwladnosc(m,a) {
             var m=document.getElementById("bezm").value
             var a=document.getElementById("beza").value
             var wynik=-(m*a)
-            document.getElementById("bezwynik").innerHTML=wynik
+            document.getElementById("bezwynik").innerHTML=wynik + " [N]"
+        }
+
+        function odsrodkowa(m,g) {
+            var m=document.getElementById("wznm").value
+            var g=document.getElementById("wzng").value
+            var wynik=m*g
+            document.getElementById("odswynik").innerHTML=wynik + " [N]"
+        }
+
+        function odsrodkowa(m,v,r) {
+            var m=document.getElementById("odsm").value
+            var v=document.getElementById("odsv").value
+            var r=document.getElementById("odsr").value
+            var wynik=m*(v/r)
+            document.getElementById("odswynik").innerHTML=wynik + " [N]"
         }
     </script>
     <div class="box">
@@ -92,8 +107,24 @@
                     </td>
                 </tr>
                 <tr>
-                    <td><div class="opcja">Opcja 5</div></td>
-                    <td><div class="opcja">Opcja 6</div></td>
+                    <td><div class="opcja"><div class="wzor">OPÓR WZNIESIENIA<br>F<sub>w</sub> = w &sdot; G</div>
+                        <div class="wzorleg">w - wzniesienie<br>G - siła ciężkości</div>
+                            <div class="oblicz">
+                                <input type="number" placeholder="w" class="wpisl" id="wznw"> &sdot; <input type="number" placeholder="G" class="wpisl" id="wzng"><br>
+                                <button onclick="wzniesienie()">Oblicz</button><br>
+                                Wynik: <label id="wznwynik"></label>
+                            </div>
+                        </div>
+                    </td>
+                    <td><div class="opcja"><div class="wzor">SIŁA ODŚRODKOWA<br>F<sub>d</sub> = m &sdot; v<sup>2</sup> / R</div>
+                        <div class="wzorleg">m - masa<br>v - prędkość po okręgu<br>R - promień okręgu</div>
+                            <div class="oblicz">
+                                <input type="number" placeholder="m" class="wpisl" id="odsm"> &sdot; <input type="number" placeholder="v" class="wpisl" id="odsv"><sup>2</sup> / <input type="number" placeholder="R" class="wpisl" id="odsr"><br>
+                                <button onclick="odsrodkowa()">Oblicz</button><br>
+                                Wynik: <label id="odswynik"></label>
+                            </div>
+                        </div>
+                    </td>
                 </tr>
             </table>
         </div>

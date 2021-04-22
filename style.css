@@ -8,9 +8,9 @@ body {
 .box {
     margin-left: auto;
     margin-right: auto;
-    width: 60%;
+    width: 850px;
     border: 4px solid rgba(49, 69, 85, 1);
-    border-radius: 10px 10px 10px 10px;
+    border-radius: 10px;
     opacity: 100%;
     animation: przezro 0.5s;
 }
@@ -30,7 +30,7 @@ body {
     text-align: center;
     position: relative;
     top: 10%;
-    animation: fizykatext 5s infinite ease-in-out;
+    /*animation: fizykatext 5s infinite ease-in-out;*/
 }
 @keyframes fizykatext {
     0%{transform: scale(1);}
@@ -40,11 +40,14 @@ body {
 
 .zawartosc {
     background-color: rgba(49, 69, 85, 0.6);
+    backdrop-filter: blur(2px);
     padding: 15px;
     font-size: 20px;
 }
 .tekst{
     padding-bottom: 10px;
+    text-align: justify;
+    transition: 0.5s ease;
 }
 
 .footer {
@@ -60,24 +63,23 @@ table {
 .opcja {
     text-align: center;
     padding: 10px;
-    width: 500px;
-    height: 250px;
+    width: 350px;
+    height: 240px;
     background-color: rgba(255, 255, 255, 0.3);
     border: 3px solid rgba(49, 69, 85, 1);
-    border-radius: 10px 10px 10px 10px;
+    border-radius: 10px;
     transform: scale(0.98);
     transition: 0.2s ease;
 }
 .opcja:hover {
-    border-radius: 20px 20px 20px 20px;
+    border-radius: 30px;
     background-color: rgba(255, 255, 255, 0.5);
-    transform: scale(1);
+    transform: scale(1.02);
 }
 
 .opcja:hover .wzor{
-    border-radius: 10px 10px 5px 5px;
+    border-radius: 20px 20px 5px 5px;
     background-color: rgba(255, 255, 255, 0.4);
-    font-size: 23px;
 }
 .wzor {
     background-color: rgba(255, 255, 255, 0.3);
